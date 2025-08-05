@@ -20,7 +20,7 @@ export const ContactSection = () => {
                 Let's Collaborate
               </h2>
               <p className="text-sm md:text-base mt-2">
-                Got a project or a cool idea in mind? I'm just a message away!
+                Got a project or a cool idea in mind? I&apos;m just a message away!
               </p>
             </div>
             <div>
