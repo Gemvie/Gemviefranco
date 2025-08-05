@@ -1,0 +1,128 @@
+import memojiImage from "@/assets/images/memoji-computer.png";
+import Image from "next/image";
+import Link from "next/link";
+import ArrowDown from "@/assets/icons/arrow-down.svg";
+import grainImage from "@/assets/images/grain.jpg";
+import StarIcon from "@/assets/icons/star.svg";
+import SparkleIcon from "@/assets/icons/sparkle.svg";
+import { HeroOrbit } from "@/components/HeroOrbit";
+import RotatingText from "@/components/RotatingText";
+import StarBorder from "@/components/StarBorder";
+import TextType from "@/components/TextType";
+import ShinyText from "@/components/ShinyText";
+import DotGrid from "@/components/DotGrid";
+export const HeroSection = () => {
+  return (
+    <div
+      id="home"
+      className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
+    >
+      {/* Background with proper z-index and pointer-events-none */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none
+       [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
+      >
+        <div style={{ width: "100%", height: "950px", position: "relative" }}>
+          <DotGrid
+            dotSize={5}
+            gap={15}
+            baseColor="#271E37"
+            activeColor="#5227FF"
+            proximity={200}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
+          />
+        </div>
+      </div>
+
+      {/* Foreground content */}
+      <div className="container relative z-10">
+        <div className="flex flex-col items-center">
+          <Image
+            src={memojiImage}
+            className="size-[100px]"
+            alt="Gemvie Gwapo"
+          />
+          <StarBorder
+            as="a"
+            href="https://www.onlinejobs.ph/jobseekers/info/1963547"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-950 border border-gray-800 hover:bg-gray-800 transition"
+            color="cyan"
+            speed="3s"
+          >
+            <div className="flex items-center gap-4 px-1.5 py-0.5">
+              <div className="bg-green-500 size-3.5 rounded-full relative">
+                <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
+              </div>
+              <div className="text-sm font-medium">Available for Work</div>
+            </div>
+          </StarBorder>
+        </div>
+
+        <div className="max-w-lg mx-auto">
+          <div className="font-serif text-3xl md:text-4xl text-center mt-8 tracking-wide">
+            <TextType
+              text={["Hello, Welcome!", "My Portfolio", "Gemvie Frank Franco"]}
+              typingSpeed={75}
+              pauseDuration={1500}
+              showCursor={true}
+              cursorCharacter="|"
+            />
+          </div>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <ShinyText
+              disabled={false}
+              speed={3}
+              className="mt-4 text-center text-white/60 md:text-lg"
+            >
+              Turning ideas into clean:
+            </ShinyText>
+
+            <RotatingText
+              texts={[
+                "Engaging Visuals",
+                "Seamless Digital",
+                "Clean UI Design",
+                "Video Edits",
+                "Data Entry",
+                "Web Interfaces",
+                "Digital Stories",
+              ]}
+              mainClassName="bg-[#5227ff] font-bold text-xs sm:text-sm md:text-base px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 md:py-2 text-white overflow-hidden justify-center rounded-lg"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
+          <Link
+            href="#project"
+            className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-white/10 transition"
+          >
+            <span className="font-semibold">Explore My Work</span>
+            <ArrowDown className="size-4" />
+          </Link>
+
+          <Link
+            href="#contact"
+            className="inline-flex items-center gap-2 border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-gray-200 transition"
+          >
+            <span>👋</span>
+            <span className="font-semibold">Say Hello</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
