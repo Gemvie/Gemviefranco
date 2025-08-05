@@ -17,7 +17,7 @@ export const ContactSection = () => {
           <div className="flex flex-col md:flex-row lg:justify-between gap-8 md:gap-16 items-center">
             <div>
               <h2 className="font-serif text-2xl md:text-3xl">
-                Let's Collaborate
+                Let&apos;s Collaborate
               </h2>
               <p className="text-sm md:text-base mt-2">
                 Got a project or a cool idea in mind? I&apos;m just a message away!
