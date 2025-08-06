@@ -1,4 +1,3 @@
-import { transform } from "next/dist/build/swc";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -34,6 +33,7 @@ const config: Config = {
         "ping-large": "ping-large 1s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
         "move-right": "move-right 1s linear infinite",
+        "fade-in": "fade-in 0.3s ease-out", // ⬅️ Your custom fade-in
       },
       keyframes: {
         "star-movement-bottom": {
@@ -55,19 +55,21 @@ const config: Config = {
           },
         },
         "move-left": {
-          "0%": {
-            transform: "translateX(0%)",
-          },
-          "100%": {
-            transform: "translateX(-50%)",
-          },
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
         "move-right": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        "fade-in": {
           "0%": {
-            transform: "translateX(-50%)",
+            opacity: "0",
+            transform: "translateY(20px)",
           },
           "100%": {
-            transform: "translateX(0%)",
+            opacity: "1",
+            transform: "translateY(0)",
           },
         },
       },

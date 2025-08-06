@@ -10,7 +10,6 @@ import RotatingText from "@/components/RotatingText";
 import StarBorder from "@/components/StarBorder";
 import TextType from "@/components/TextType";
 import ShinyText from "@/components/ShinyText";
-import DotGrid from "@/components/DotGrid";
 export const HeroSection = () => {
   return (
     <div
@@ -18,23 +17,8 @@ export const HeroSection = () => {
       className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
     >
       {/* Background with proper z-index and pointer-events-none */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none
-       [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"
-      >
-        <div style={{ width: "100%", height: "950px", position: "relative" }}>
-          <DotGrid
-            dotSize={5}
-            gap={15}
-            baseColor="#271E37"
-            activeColor="#5227FF"
-            proximity={200}
-            shockRadius={250}
-            shockStrength={5}
-            resistance={750}
-            returnDuration={1.5}
-          />
-        </div>
+      <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+
       </div>
 
       {/* Foreground content */}
