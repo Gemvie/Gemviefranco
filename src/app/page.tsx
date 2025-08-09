@@ -1,3 +1,6 @@
+"use client";
+import { useState, useEffect } from "react";
+
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { ProjectsSection } from "@/sections/Projects";
@@ -10,6 +13,21 @@ import { Footer } from "@/sections/Footer";
 import DotGrid from "@/components/DotGrid";
 
 export default function Home() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="relative">
       {/* Full-page DotGrid background */}
@@ -47,6 +65,23 @@ export default function Home() {
         <ContactSection />
         <Footer />
       </ClickSpark>
+
+      {/* Scroll to Top Button (fade, bounce, rotate on hover) */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg text-white text-lg
+          bg-gradient-to-r from-cyan-400 to-orange-400
+          hover:from-cyan-500 hover:to-orange-500
+          animate-bounce transition-all duration-500 ease-in-out
+          hover:rotate-12
+        ${
+          showScrollTop
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        ↑
+      </button>
     </div>
   );
 }
