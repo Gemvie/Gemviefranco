@@ -2,14 +2,10 @@ import memojiImage from "@/assets/images/memoji-computer.png";
 import Image from "next/image";
 import Link from "next/link";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
-import grainImage from "@/assets/images/grain.jpg";
-import StarIcon from "@/assets/icons/star.svg";
-import SparkleIcon from "@/assets/icons/sparkle.svg";
-import { HeroOrbit } from "@/components/HeroOrbit";
 import RotatingText from "@/components/RotatingText";
 import StarBorder from "@/components/StarBorder";
-import TextType from "@/components/TextType";
 import ShinyText from "@/components/ShinyText";
+import SplitText from "@/components/SplitText";
 export const HeroSection = () => {
   return (
     <div
@@ -17,9 +13,7 @@ export const HeroSection = () => {
       className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
     >
       {/* Background with proper z-index and pointer-events-none */}
-      <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
-
-      </div>
+      <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]"></div>
 
       {/* Foreground content */}
       <div className="container relative z-10">
@@ -49,32 +43,36 @@ export const HeroSection = () => {
 
         <div className="max-w-lg mx-auto">
           <div className="font-serif text-3xl md:text-4xl text-center mt-8 tracking-wide">
-            <TextType
-              text={["Hello, Welcome!", "My Portfolio", "Gemvie Frank Franco"]}
-              typingSpeed={75}
-              pauseDuration={1500}
-              showCursor={true}
-              cursorCharacter="|"
+            <SplitText
+              text="HELLO, WELCOME!"
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
             />
           </div>
-          <div className="flex items-center justify-center gap-2 mt-4">
+          <div className="flex items-baseline justify-center gap-2 mt-4">
             <ShinyText
               disabled={false}
               speed={3}
-              className="mt-4 text-center text-white/60 md:text-lg"
+              className="mt-0 text-center text-white/60 md:text-lg"
             >
               Turning ideas into clean:
             </ShinyText>
 
             <RotatingText
               texts={[
-                "Engaging Visuals",
-                "Seamless Digital",
-                "Clean UI Design",
-                "Video Edits",
-                "Data Entry",
                 "Web Interfaces",
-                "Digital Stories",
+                "UI Layouts",
+                "Clean UI Design",
+                "Responsive",
+                "Optimized Code",
+                "Video Cuts",
+                "Motion Graphics",
+                "SEO Content",
               ]}
               mainClassName="bg-[#5227ff] font-bold text-xs sm:text-sm md:text-base px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 md:py-2 text-white overflow-hidden justify-center rounded-lg"
               staggerFrom={"last"}
