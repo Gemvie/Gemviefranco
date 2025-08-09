@@ -12,72 +12,64 @@ export const ContactSection = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Initialize EmailJS once on client
   useEffect(() => {
     emailjs.init("aaGMA_uReZMAlWJVf");
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name || !email || !message) {
-      alert("Please fill in all fields.");
-      return;
-    }
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+  if (!name || !email || !message) {
+    alert("Please fill in all fields.");
+    return;
+  }
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-
-   const templateParams = {
-     from_name: name, 
-     name: name, 
-     message: message,
-     email: email,
-   };
-
-      const response = await emailjs.send(
-        "service_2pt4mkm", 
-        "template_jxq2qgp", 
-        templateParams
-     
-      );
-
-      console.log("EmailJS success:", response); // useful for debugging
-      setLoading(false);
-      alert("Message sent successfully!");
-      handleClose();
-      setName("");
-      setEmail("");
-      setMessage("");
-    } catch (err: any) {
-      setLoading(false);
-
- 
-      console.error("EmailJS send error full object:", err);
-
-      if (err && (err.status || err.text || err.message)) {
-        console.error(
-          "status:",
-          err.status,
-          "text:",
-          err.text,
-          "message:",
-          err.message
-        );
+  try {
+    // Send email to YOU
+    await emailjs.send(
+      "service_2pt4mkm",
+      "template_1505f6l", // This template's "To" is YOUR email
+      {
+        from_name: name,
+        name: name,
+        message: message,
+        email: email,
       }
+    );
 
-      // Friendly message to user
-      alert(
-        "Something went wrong sending the email. Please check console (F12) for details."
-      );
-    }
-  };
+    // Send auto-reply to THEM
+    await emailjs.send(
+      "service_2pt4mkm",
+      "template_jxq2qgp", // This template's "To" is {{reply_to}}
+      {
+        from_name: name,
+        name: name,
+        message: message,
+        email: email,
+      }
+    );
+
+    setLoading(false);
+    alert("Message sent successfully!");
+    handleClose();
+    setName("");
+    setEmail("");
+    setMessage("");
+  } catch (err: any) {
+    setLoading(false);
+    console.error("EmailJS send error:", err);
+    alert(
+      "Something went wrong sending the email. Please check console for details."
+    );
+  }
+};
 
   const handleOpen = () => {
     setShowPopup(true);
