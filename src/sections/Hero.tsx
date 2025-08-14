@@ -1,11 +1,11 @@
 import memojiImage from "@/assets/images/memoji-computer.png";
 import Image from "next/image";
 import Link from "next/link";
-import ArrowDown from "@/assets/icons/arrow-down.svg";
 import RotatingText from "@/components/RotatingText";
 import StarBorder from "@/components/StarBorder";
 import ShinyText from "@/components/ShinyText";
 import SplitText from "@/components/SplitText";
+import Eyes from "@/assets/icons/eyes.svg";
 export const HeroSection = () => {
   return (
     <div
@@ -74,7 +74,7 @@ export const HeroSection = () => {
                 "Motion Graphics",
                 "SEO Content",
               ]}
-              mainClassName="bg-[#5227ff] font-bold text-xs sm:text-sm md:text-base px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 md:py-2 text-white overflow-hidden justify-center rounded-lg"
+              mainClassName="bg-[#0ABAB5] font-bold text-xs sm:text-sm md:text-base px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 md:py-2 text-white overflow-hidden justify-center rounded-lg"
               staggerFrom={"last"}
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
@@ -89,11 +89,12 @@ export const HeroSection = () => {
 
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <Link
-            href="#project"
+            href="/projects/CV"
+            target=".blank"
             className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-white/10 transition"
           >
-            <span className="font-semibold">Explore My Work</span>
-            <ArrowDown className="size-4" />
+            <span className="font-semibold">Check My CV</span>
+            <Eyes className="size-5" />
           </Link>
 
           <Link

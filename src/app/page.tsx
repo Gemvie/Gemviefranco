@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { ProjectsSection } from "@/sections/Projects";
@@ -37,10 +36,10 @@ export default function Home() {
       >
         <DotGrid
           dotSize={5}
-          gap={15}
-          baseColor="#271E37"
-          activeColor="#5227FF"
-          proximity={200}
+          gap={40}
+          baseColor="#0ABAB5"
+          activeColor="#10606A"
+          proximity={120}
           shockRadius={250}
           shockStrength={5}
           resistance={750}

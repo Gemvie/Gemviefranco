@@ -15,7 +15,7 @@ const footerLinks = [
   },
   {
     title: "GitHub",
-    href: "#",
+    href: "https://github.com/Gemvie",
   },
 ];
 

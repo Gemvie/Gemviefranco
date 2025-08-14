@@ -18,7 +18,7 @@ const portfolioProjects = [
       { title: "Designed smooth UX for mobile-first users" },
     ],
     link: "/projects/ecommerce",
-    
+
     image: darkSaasLandingPage,
   },
   {
@@ -35,14 +35,20 @@ const portfolioProjects = [
   },
   {
     company: "Personal Project",
-    year: "2025",
-    title: "UI/UX Website",
+    year: "• 2025",
+    title: "AI Text-to-Image Generato",
     results: [
-      { title: "Focuses on clean, intuitive user interfaces" },
-      { title: "Demonstrates UX flows, usability, and accessibility" },
-      { title: "Built to attract clients looking for UI/UX design services" },
+      {
+        title: "Transforms prompts into high-quality images using AI.",
+      },
+      {
+        title: "Showcases prompt handling, image rendering, modern UI.",
+      },
+      {
+        title: "Built to attract users and clients of AI tools.",
+      },
     ],
-    link: "/projects/uxwebsite",
+    link: "https://textimageai.vercel.app/",
     image: aiStartupLandingPage,
   },
 ];
@@ -91,7 +97,7 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link}>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
                     <button
                       className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl 
                 font-semibold inline-flex items-center justify-center gap-2 mt-8"
