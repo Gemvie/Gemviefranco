@@ -45,7 +45,7 @@ const CV = () => {
             Education
           </h2>
           <p className="text-gray-700">
-            Bachelor's Degree (Undergraduate), 3rd Year College (On school
+            Bachelor&apos;s Degree (Undergraduate), 3rd Year College (On school
             break)
           </p>
         </section>
