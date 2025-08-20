@@ -4,15 +4,24 @@ import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { ProjectsSection } from "@/sections/Projects";
 import { TapeSection } from "@/sections/Tape";
-import { BlogSection}  from "@/sections/Blogs";
+import { BlogSection } from "@/sections/Blogs";
 import { AboutSection } from "@/sections/About";
 import ClickSpark from "@/components/ClickSpark";
 import { ContactSection } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
 import DotGrid from "@/components/DotGrid";
+import { motion, useScroll, useSpring } from "motion/react";
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // track window scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 50,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +38,12 @@ export default function Home() {
 
   return (
     <div className="relative">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed left-0 top-0 h-1 w-full origin-left bg-blue-500 z-50"
+        style={{ scaleX }}
+      />
+
       {/* Full-page DotGrid background */}
       <div
         className="fixed top-0 left-0 w-full h-full -z-10 opacity-20"
@@ -65,11 +80,11 @@ export default function Home() {
         <Footer />
       </ClickSpark>
 
-      {/* Scroll to Top Button (fade, bounce, rotate on hover) */}
+      {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
         className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg text-white text-lg
-          bg-gradient-to-r from-blue-500/20  to-blue-500/20 
+          bg-gradient-to-r from-blue-500/20 to-blue-500/20
           hover:from-blue-500/30 hover:to-blue-500/30
           animate-bounce transition-all duration-500 ease-in-out
           hover:rotate-12

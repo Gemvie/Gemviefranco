@@ -6,6 +6,11 @@ const nextConfig = {
       rule.test?.test?.(".svg")
     );
 
+    // Make sure resourceQuery exists
+    if (!fileLoaderRule.resourceQuery) {
+      fileLoaderRule.resourceQuery = { not: [] };
+    }
+
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
       {
@@ -16,29 +21,31 @@ const nextConfig = {
       // Convert all other *.svg imports to React components
       {
         test: /\.svg$/i,
-        issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: {
-          loader: "@svgr/webpack",
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: "preset-default",
-                  params: {
-                    overrides: {
-                      removeViewBox: false,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] },
+        use: [
+          {
+            loader: "@svgr/webpack",
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: "preset-default",
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                      },
                     },
                   },
-                },
-              ],
+                ],
+              },
             },
           },
-        },
+        ],
       }
     );
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
+    // Modify the file loader rule to ignore *.svg, since we handle it now
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;

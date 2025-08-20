@@ -1,11 +1,11 @@
 import memojiImage from "@/assets/images/memoji-computer.png";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import RotatingText from "@/components/RotatingText";
 import StarBorder from "@/components/StarBorder";
 import ShinyText from "@/components/ShinyText";
 import SplitText from "@/components/SplitText";
-import Eyes from "@/assets/icons/eyes.svg";
 export const HeroSection = () => {
   return (
     <div
@@ -18,11 +18,18 @@ export const HeroSection = () => {
       {/* Foreground content */}
       <div className="container relative z-10">
         <div className="flex flex-col items-center">
-          <Image
-            src={memojiImage}
-            className="size-[100px]"
-            alt="Gemvie Gwapo"
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // start slightly below and invisible
+            animate={{ opacity: 1, y: 0 }} // end at normal position fully visible
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="mb-3"
+          >
+            <Image
+              src={memojiImage}
+              className="size-[100px]"
+              alt="Gemvie Gwapo"
+            />
+          </motion.div>
           <StarBorder
             as="a"
             href="https://www.onlinejobs.ph/jobseekers/info/1963547"
@@ -94,7 +101,30 @@ export const HeroSection = () => {
             className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-white/10 transition"
           >
             <span className="font-semibold">Check My CV</span>
-            <Eyes className="size-5" />
+            <span
+              className="size-5 mb-2 text-white
+          animate-[glow_6s_infinite]"
+            >
+              👀
+            </span>
+
+            <style jsx global>{`
+              @keyframes glow {
+                0%,
+                100% {
+                  text-shadow: 0 0 5px blue, 0 0 10px blue;
+                }
+                25% {
+                  text-shadow: 0 0 5px green, 0 0 10px green;
+                }
+                50% {
+                  text-shadow: 0 0 5px magenta, 0 0 10px magenta;
+                }
+                75% {
+                  text-shadow: 0 0 5px purple, 0 0 10px purple;
+                }
+              }
+            `}</style>
           </Link>
 
           <Link

@@ -10,35 +10,35 @@ const data = [
   {
     title: "Home",
     icon: (
-      <HomeIcon className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      <HomeIcon className="h-full w-full text-white dark:text-neutral-300" />
     ),
     href: "#home",
   },
   {
     title: "About Me",
     icon: (
-      <AboutMe className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      <AboutMe className="h-full w-full text-white dark:text-neutral-300" />
     ),
     href: "#about",
   },
   {
     title: "Project",
     icon: (
-      <FolderKanban className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      <FolderKanban className="h-full w-full text-white dark:text-neutral-300" />
     ),
     href: "#project",
   },
   {
     title: "Blogs",
     icon: (
-      <ScrollText className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      <ScrollText className="h-full w-full text-white dark:text-neutral-300" />
     ),
     href: "#blogs",
   },
   {
     title: "Contact",
     icon: (
-      <Contact className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      <Contact className="h-full w-full text-white dark:text-neutral-300" />
     ),
     href: "#contact",
   },
@@ -108,7 +108,7 @@ export const Header = () => {
           <Dock className="items-end pb-3">
             {data.map((item, idx) => (
               <a key={idx} href={item.href} className="no-underline">
-                <DockItem className="aspect-square rounded-full bg-blue-200 dark:bg-blue-500/30">
+                <DockItem className="aspect-square rounded-full bg-blue-500/20 dark:bg-blue-500/30">
                   <DockLabel>{item.title}</DockLabel>
                   <DockIcon>{item.icon}</DockIcon>
                 </DockItem>

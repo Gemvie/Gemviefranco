@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.18.2",
@@ -25,6 +24,7 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
