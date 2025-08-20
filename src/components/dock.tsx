@@ -184,10 +184,10 @@ function DockLabel({ children, className, isHovered }: DockLabelProps) {
   );
 }
 function DockIcon({ children, className, width }: DockIconProps) {
-  const widthTransform = useTransform(
-    width ?? useMotionValue(40),
-    (val) => val / 2
-  );
+  const baseWidth = useMotionValue(40); // always call hook
+  const motionWidth = width ?? baseWidth; // decide which one to use
+
+  const widthTransform = useTransform(motionWidth, (val) => val / 2);
 
   return (
     <motion.div
