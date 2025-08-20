@@ -22,3 +22,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer components {
+  .dock-item {
+    @apply flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-xl transition hover:bg-white/20;
+  }
+
+  .dock-label {
+    @apply text-xs text-neutral-300;
+  }
+}

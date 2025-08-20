@@ -4,7 +4,7 @@ import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { ProjectsSection } from "@/sections/Projects";
 import { TapeSection } from "@/sections/Tape";
-import { TestimonialsSection } from "@/sections/Testimonials";
+import { BlogSection}  from "@/sections/Blogs";
 import { AboutSection } from "@/sections/About";
 import ClickSpark from "@/components/ClickSpark";
 import { ContactSection } from "@/sections/Contact";
@@ -60,7 +60,7 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <TapeSection />
-        <TestimonialsSection />
+        <BlogSection />
         <ContactSection />
         <Footer />
       </ClickSpark>
@@ -69,8 +69,8 @@ export default function Home() {
       <button
         onClick={scrollToTop}
         className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg text-white text-lg
-          bg-gradient-to-r from-cyan-400 to-orange-400
-          hover:from-cyan-500 hover:to-orange-500
+          bg-gradient-to-r from-blue-500/20  to-blue-500/20 
+          hover:from-blue-500/30 hover:to-blue-500/30
           animate-bounce transition-all duration-500 ease-in-out
           hover:rotate-12
         ${

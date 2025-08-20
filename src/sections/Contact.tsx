@@ -85,7 +85,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     <div id="contact" className="py-16 pt-12 lg:py-24 lg:pt-20">
       <div className="container">
         <div
-          className="bg-gradient-to-r from-cyan-300 to-orange-400 text-gray-900 py-8 
+          className="bg-gradient-to-r  from-blue-500/20 to-blue-500/20 text-white py-8 
           px-10 rounded-3xl text-center md:text-left relative overflow-hidden z-0"
         >
           <div
@@ -122,13 +122,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           }`}
         >
           <div
-            className={`bg-gradient-to-br from-cyan-300/80 to-orange-400/80 p-8 rounded-t-3xl md:rounded-3xl w-full md:max-w-md backdrop-blur-md shadow-xl transform transition-all duration-300 ${
+            className={`bg-gradient-to-br from-blue-500/20 to-blue-500/20 p-8 rounded-t-3xl md:rounded-3xl w-full md:max-w-md backdrop-blur-md shadow-xl transform transition-all duration-300 ${
               animateIn
                 ? "translate-y-0 opacity-100"
                 : "translate-y-full opacity-0"
             }`}
           >
-            <h3 className="text-xl font-bold mb-4 text-gray-900">
+            <h3 className="text-xl font-bold mb-4 text-white">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -167,7 +167,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="text-gray-700"
+                  className="text-white/30"
                 >
                   Cancel
                 </button>

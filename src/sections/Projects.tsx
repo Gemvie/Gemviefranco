@@ -36,7 +36,7 @@ const portfolioProjects = [
   {
     company: "Personal Project",
     year: "• 2025",
-    title: "AI Text-to-Image Generato",
+    title: "AI Text-to-Image Generator",
     results: [
       {
         title: "Transforms prompts into high-quality images using AI.",
