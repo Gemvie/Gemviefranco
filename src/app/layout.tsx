@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Calistoga } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        
         <link rel="icon" href="/favicon.png" />
       </head>
       <body
@@ -33,6 +35,22 @@ export default function RootLayout({
         )}
       >
         {children}
+
+        
+        <Script id="disable-inspect" strategy="afterInteractive">
+          {`
+            document.addEventListener("contextmenu", (e) => e.preventDefault());
+            document.addEventListener("keydown", (e) => {
+              if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+                (e.ctrlKey && e.key === "U")
+              ) {
+                e.preventDefault();
+              }
+            });
+          `}
+        </Script>
       </body>
     </html>
   );
